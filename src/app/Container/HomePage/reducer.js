@@ -2,7 +2,8 @@ import { ADD_ONE } from './constants'
 import { SUBTRACT } from './constants'
 
 const initialState = {
-  	number: 0
+	  number: 0,
+	  stuff: []
 }
 
 export const homeReducer = (state = initialState, action) => {
@@ -17,6 +18,13 @@ export const homeReducer = (state = initialState, action) => {
 			...state, 
 			number : state.number - action.payload
 		}
+	case 'FETCH_DATA_SUCCESS':
+		return { 
+			...state, 
+			posts : action.payload
+		}
+	case 'FETCH_DATA_REQUEST':
+		return state
 		  default:
 	  	return state
   	}
